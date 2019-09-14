@@ -10,7 +10,7 @@ class Data extends REST_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('data_model','mData');
+        $this->load->model('data_api_model','mData');
     }
     public function index_get()
     {

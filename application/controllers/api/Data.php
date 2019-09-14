@@ -14,11 +14,17 @@ class Data extends REST_Controller
     }
     public function index_get()
     {
+        $id_kategori = $this->get('id_kategori');
         $id = $this->get('id');
-        if($id === null){
+        
+        if($id === null && $id_kategori === null){
             $data = $this->mData->get();
-        } else {
+        } elseif($id) {
             $data = $this->mData->get($id);
+        } elseif($id_kategori){
+            $data = $this->mData->get_by_id_kategori($id_kategori);
+        } else { 
+            $data = null;
         }
         
         if($data){
